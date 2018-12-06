@@ -3,8 +3,7 @@ from kafka import KafkaProducer
 
 class SatelliteProducer(object):
 
-    def __init__(self, path, topic, server):
-        self.path = path
+    def __init__(self, server, topic):
         self.topic = topic
         self.server = server
         self.producer = KafkaProducer(bootstrap_servers=self.server)

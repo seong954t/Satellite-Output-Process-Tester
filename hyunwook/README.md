@@ -1,3 +1,1 @@
-[RsyncConsumer]
 
-[automata.sh]

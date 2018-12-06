@@ -22,8 +22,9 @@ class SatelliteOuter(object):
         }
 
     def file_scheduling(self, str_mode):
-        print(self.mode_dic[str_mode])
-        thread = Timer(self.mode_dic[str_mode]['interval']-0.001, self.file_scheduling, [str_mode])
+        thread = Timer(self.mode_dic[str_mode]['interval']-0.001,
+                       self.file_scheduling,
+                       [str_mode])
         thread.start()
         self.mode_dic[str_mode]['thread'] = thread
         self.create_file(str_mode)
@@ -41,7 +42,7 @@ class SatelliteOuter(object):
         print(str_mode, ' : ', file_name)
 
     def create_file_name(self, str_mode):
-        file_name = "C:/Users/gsd/Desktop/COMS/{:s}/GOCI/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
+        file_name = "/COMS/GOCI/{:s}/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
         file_name = datetime.datetime.strftime(datetime.datetime.now(), file_name)
         file_name = file_name.format(str_mode, str_mode)
         return file_name

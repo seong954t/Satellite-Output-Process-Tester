@@ -40,8 +40,10 @@ class SatelliteOuter(object):
         f.write(str(datetime.datetime.now()))
         f.close()
         print(str_mode, ' : ', file_name)
+        return file_name
 
-    def create_file_name(self, str_mode):
+    @staticmethod
+    def create_file_name(str_mode):
         file_name = "/COMS/GOCI/{:s}/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
         file_name = datetime.datetime.strftime(datetime.datetime.now(), file_name)
         file_name = file_name.format(str_mode, str_mode)

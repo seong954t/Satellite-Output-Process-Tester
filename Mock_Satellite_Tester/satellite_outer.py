@@ -8,15 +8,15 @@ class SatelliteOuter(object):
     def __init__(self):
         self.mode_dic = {
             'FD': {
-                'interval': 10,
+                'interval': 60*5,
                 'thread': Timer
             },
             'ELA': {
-                'interval': 5,
+                'interval': 60*3,
                 'thread': Timer
             },
             'LA': {
-                'interval': 3,
+                'interval': 60*1,
                 'thread': Timer
             }
         }
@@ -41,6 +41,10 @@ class SatelliteOuter(object):
         f.close()
         print(str_mode, ' : ', file_name)
         return file_name
+
+    def set_mode_interval(self, str_mode, interval):
+        self.mode_dic[str_mode]['interval'] = int(interval)*60
+        print(self.mode_dic[str_mode]['interval'])
 
     @staticmethod
     def create_file_name(str_mode):

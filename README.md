@@ -6,6 +6,8 @@
 
 ### 모의 인공위성 실행(①)
     
+[Mock_Satellite_Tester 참고](./Mock_Satellite_Tester)
+    
     $ python Mock_Satellite_Tester/main.py {아이피주소:포트} {토픽}
     
     ex)
@@ -16,6 +18,8 @@
     run> stop LA
     
 ### Kafka Server Docker 실행(②)
+
+[Kafka_Docker 참고](./Kafka_Docker)
     
     1. git clone kafka-docker (https://github.com/wurstmeister/kafka-docker.git)
     2. docker-compose.yml 파일 수정 (ip 주소는 해당 호스트의 ip 주소로 설정)
@@ -28,6 +32,8 @@
     * zookeeper 설정: https://stackoverflow.com/questions/48789422/apache-kafka-cluster-not-conne
 
 ### Rsync Producer 실행(③)
+
+[hyunwook 참고](./hyunwook)
 
     $ python RysncConsumer.py {아이피주소:포트} {토픽}
 

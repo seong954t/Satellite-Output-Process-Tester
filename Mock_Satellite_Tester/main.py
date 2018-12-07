@@ -1,4 +1,4 @@
-from kafka_producer import SatelliteProducer
+from satellite_producer import SatelliteProducer
 from satellite_outer_producer import SatelliteOuterProducer
 import sys
 

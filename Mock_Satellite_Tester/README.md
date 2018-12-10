@@ -14,6 +14,12 @@
     ex)
     $ python main.py 127.0.0.1:9092 topic
     
-    run> start LA
-    run> start FD
-    run> stop LA
+    
+RestFul
+
+    request
+        http://localhost:5002/start/<mode>/<interval>
+        http://localhost:5002/stop/<mode>/
+       
+    response
+        success: 'OK'

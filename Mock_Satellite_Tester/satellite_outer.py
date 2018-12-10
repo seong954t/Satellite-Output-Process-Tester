@@ -44,7 +44,7 @@ class SatelliteOuter(object):
         file_path = "/COMS/GOCI/{:s}/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
         now_date = datetime.datetime.now()
         file_path = datetime.datetime.strftime(now_date, file_path)
-        file_path = file_path.format(str_mode.upper(), str_mode.upper())
+        file_path = file_path.format(str_mode, str_mode)
         file_pre_path = '/'.join(file_path.split('/')[:-1])
         file_name = file_path.split('/')[-1]
         self.satellite_firebase.put('satellite_dir'+file_pre_path, file_name.split('.')[0], file_name.split('.')[-1])

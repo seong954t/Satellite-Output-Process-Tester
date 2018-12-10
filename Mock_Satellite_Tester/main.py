@@ -1,5 +1,5 @@
-from Mock_Satellite_Tester.satellite_producer import SatelliteProducer
-from Mock_Satellite_Tester.satellite_outer_producer import SatelliteOuterProducer
+from satellite_producer import SatelliteProducer
+from satellite_outer_producer import SatelliteOuterProducer
 import sys
 from flask import Flask
 from flask_restful import Resource, Api
@@ -15,15 +15,15 @@ satellite_outer_producer = SatelliteOuterProducer(kafka_producer)
 class RunMode(Resource):
 
     def get(self, mode, interval):
-        satellite_outer_producer.set_mode_interval(mode, interval)
-        satellite_outer_producer.file_scheduling(mode)
+        satellite_outer_producer.set_mode_interval(mode.lower(), interval)
+        satellite_outer_producer.file_scheduling(mode.lower())
         return 'OK'
 
 
 class StopMode(Resource):
 
     def get(self, mode):
-        satellite_outer_producer.stop_file_scheduling(mode)
+        satellite_outer_producer.stop_file_scheduling(mode.lower())
         return 'OK'
 
 

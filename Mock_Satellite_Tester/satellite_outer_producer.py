@@ -1,4 +1,4 @@
-from satellite_outer import SatelliteOuter
+from Mock_Satellite_Tester.satellite_outer import SatelliteOuter
 
 
 class SatelliteOuterProducer(SatelliteOuter):

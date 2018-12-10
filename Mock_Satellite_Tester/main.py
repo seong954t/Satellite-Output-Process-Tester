@@ -31,7 +31,7 @@ api.add_resource(RunMode, '/start/<mode>/<interval>')
 api.add_resource(StopMode, '/stop/<mode>/')
 
 if __name__ == '__main__':
-     app.run(port='5002')
+     app.run(host='192.168.100.103', port='5002')
 # def main():
 #     # sys.argv[1] : server ip : port
 #     # sys.argv[2] : topic

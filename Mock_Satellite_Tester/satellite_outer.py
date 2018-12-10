@@ -11,6 +11,7 @@ class SatelliteOuter(object):
         self.mode_dic = self.satellite_firebase.get('status/', None)
         for key in self.mode_dic.keys():
             if self.mode_dic[key]['state'] == 'run':
+                self.satellite_firebase.put('status/' + key, 'state', 'stop')
                 self.mode_dic[key]['state'] = 'stop'
             self.mode_dic[key]['thread'] = Timer
 
@@ -39,12 +40,15 @@ class SatelliteOuter(object):
         self.mode_dic[str_mode]['interval'] = int(interval)*60
         self.satellite_firebase.put('status/'+str_mode, 'interval', interval)
 
-    @staticmethod
-    def create_file_name(str_mode):
-        file_name = "/COMS/GOCI/{:s}/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
-        file_name = datetime.datetime.strftime(datetime.datetime.now(), file_name)
-        file_name = file_name.format(str_mode, str_mode)
-        return file_name
+    def create_file_name(self, str_mode):
+        file_path = "/COMS/GOCI/{:s}/%Y/%m/%d/COMS_GOCI_{:s}_%Y%m%d%H%M%S.txt"
+        now_date = datetime.datetime.now()
+        file_path = datetime.datetime.strftime(now_date, file_path)
+        file_path = file_path.format(str_mode.upper(), str_mode.upper())
+        file_pre_path = '/'.join(file_path.split('/')[:-1])
+        file_name = file_path.split('/')[-1]
+        self.satellite_firebase.put('satellite_dir'+file_pre_path, file_name.split('.')[0], file_name.split('.')[-1])
+        return file_path
 
     @staticmethod
     def check_dir(path):

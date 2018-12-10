@@ -8,14 +8,23 @@
     
 [Mock_Satellite_Tester 참고](./Mock_Satellite_Tester)
     
-    $ python Mock_Satellite_Tester/main.py {아이피주소:포트} {토픽}
+    ### 실행 방법
+
+    $ pip install -r requirements.txt
+    $ python main.py {아이피주소:포트} {토픽}
     
     ex)
-    $ python Mock_Satellite_Tester/main.py 127.0.0.1:9092 topic
+    $ python main.py 127.0.0.1:9092 topic
     
-    run> start LA
-    run> start FD
-    run> stop LA
+    
+RestFul
+
+    request
+        http://localhost:5002/start/<mode>/<interval>
+        http://localhost:5002/stop/<mode>/
+       
+    response
+        success: 'OK'
     
 ### Kafka Server Docker 실행(②)
 

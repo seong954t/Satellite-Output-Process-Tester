@@ -121,7 +121,7 @@ export class FileViewerComponent implements OnInit {
     });
 
     // store
-    this.storeRef = db.object('test_dir');
+    this.storeRef = db.object('saved_dir');
     this.storeRef.snapshotChanges().subscribe(action => {
       this.storeDir = action.payload.val();
       console.log(this.storeDir);

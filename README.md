@@ -6,7 +6,7 @@
 
 ### 모의 인공위성 실행(①)
     
-[mockup_satellite 참고](./mockup_satellite)
+[mockup_satellite 참고](Mockup_Satellite)
     
     ### 실행 방법
 
@@ -51,7 +51,7 @@ RestFul
 
 ### Rsync Producer 실행(④)
 
-[hyunwook 참고](./hyunwook)
+[hyunwook 참고](Kafka_Consumer_Saver)
 
     $ python RysncConsumer.py {아이피주소:포트} {토픽}
 

@@ -19,7 +19,45 @@ export class FileViewerComponent implements OnInit {
   storeFirst = true;
 
   backDirectory(target: string) {
+    let currentPath = this.satellitePath;
+    let currentDir = this.satelliteDir;
+    if (target === 'store') {
+      currentPath = this.storePath;
+      currentDir = this.storeDir;
+    }
+    if (currentPath === '/') {
+      return;
+    }
+    let currentDirList = currentPath.slice(1, -1).split('/');
+    currentDirList = currentDirList.slice(0, -1);
 
+    if (currentDirList.length === 0) {
+      if (target === 'store') {
+        this.storePath = '/';
+        this.storeFileList = Object.keys(this.storeDir);
+      } else {
+        this.satellitePath = '/';
+        this.satelliteFileList = Object.keys(this.satelliteDir);
+      }
+      return;
+    }
+
+    for (const dir of currentDirList) {
+      if (dir !== '') {
+        if (target === 'store') {
+          this.storeFileList = this.setPostfix(currentDir[dir]);
+        } else {
+          this.satelliteFileList = this.setPostfix(currentDir[dir]);
+        }
+        currentDir = currentDir[dir];
+      }
+    }
+
+    if (target === 'store') {
+      this.storePath = '/' + currentDirList.join('/') + '/';
+    } else {
+      this.satellitePath = '/' + currentDirList.join('/') + '/';
+    }
   }
 
   changeDirectory(target: string, file: string) {
@@ -31,9 +69,12 @@ export class FileViewerComponent implements OnInit {
     }
     const currentDirList = currentPath.trim().split('/');
     currentDirList.push(file);
-    console.log(currentDirList);
+
     for (const dir of currentDirList) {
       if (dir !== '') {
+        if (currentDir[dir] === undefined) {
+          return;
+        }
         if (target === 'store') {
           this.storeFileList = this.setPostfix(currentDir[dir]);
         } else {
@@ -42,6 +83,7 @@ export class FileViewerComponent implements OnInit {
         currentDir = currentDir[dir];
       }
     }
+
     if (file !== '') {
       if (target === 'store') {
         this.storePath = currentPath + file + '/';
@@ -53,7 +95,6 @@ export class FileViewerComponent implements OnInit {
   }
 
   setPostfix(currentDir): Array<String> {
-    console.log(currentDir);
     const currentList = Object.keys(currentDir);
     for (let i = 0; i < currentList.length; i++) {
       const key = currentList[i];
@@ -80,7 +121,7 @@ export class FileViewerComponent implements OnInit {
     });
 
     // store
-    this.storeRef = db.object('test_dic');
+    this.storeRef = db.object('test_dir');
     this.storeRef.snapshotChanges().subscribe(action => {
       this.storeDir = action.payload.val();
       console.log(this.storeDir);

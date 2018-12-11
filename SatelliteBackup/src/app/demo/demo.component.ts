@@ -1,5 +1,6 @@
 import { SatelliteBackupComponent } from './../satellite-backup/satellite-backup.component';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @Component({
@@ -8,52 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
+  clusterRef: any;
+  statusRef: any;
+  clusterInfo: any;
+  statusInfo: any;
 
-  clusterInfo = {
-    Kafka1: {
-      address: "192.168.32.130",
-      connected: true
-    },
-    Kafka2: {
-      address: "192.168.32.100",
-      connected: false
-    },
-    Kafka3: {
-      address: "192.168.32.210",
-      connected: true
-    },
-    Kafka4: {
-      address: "192.168.32.090",
-      connected: true
-    },
+  constructor(db: AngularFireDatabase) {
+    this.clusterRef = db.object('cluster');
+    this.statusRef = db.object('status');
+
+    this.clusterRef.snapshotChanges().subscribe(action => {
+      this.clusterInfo = action.payload.val();
+      console.log(this.clusterInfo);
+    });
+
+    this.statusRef.snapshotChanges().subscribe(action => {
+      this.statusInfo = action.payload.val();
+      console.log(this.statusInfo);
+    });
   }
-
-  recInfo = {
-    FD: {
-      interval: 5,
-      running: false
-    },
-    LA: {
-      interval: 10,
-      running: true
-    },
-    ELA: {
-      interval: 15,
-      running: false
-    },
-  }
-
-  constructor() { }
 
   ngOnInit() {
   }
 
   makeKafkaBreak() {
-    const temp = this.clusterInfo
-    temp.Kafka3.connected = false
-    this.clusterInfo = temp
+    const temp = this.clusterInfo;
+    temp.Kafka3.connected = false;
+    this.clusterInfo = temp;
 
-    console.log(this.clusterInfo)
+    console.log(this.clusterInfo);
   }
 
 }

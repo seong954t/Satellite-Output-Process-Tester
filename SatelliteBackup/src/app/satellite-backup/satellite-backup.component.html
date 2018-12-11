@@ -1,34 +1,36 @@
-<div class="recSelector">
-  <div *ngFor="let mode of objectKeys(recInfo)" class="recButtonHolder">
-    <button [ngClass]="{onModeButton: recInfo[mode].running, offModeButton: !recInfo[mode].running}" id={{mode}}
-      (click)="clickRecMode(mode)">{{mode}}</button>
-  </div>
-</div>
-
-<div class="fileViewer">
-  <app-file-viewer></app-file-viewer>
-</div>
-
-<div class="recTimeSelector">
-  <div *ngFor="let mode of objectKeys(recInfo)">
-    <div>{{mode}} <input [disabled]=recInfo[mode].running type="text" class="intervalBox" id={{mode}} value={{recInfo[mode].interval}}></div>
-  </div>
-</div>
-
-<div class="currentFile">
-  <div *ngFor="let mode of objectKeys(recInfo)">
-    <div>{{mode}} <input type="text" [disabled]=!recInfo[mode].running cols="10" rows="1" readonly=true></div>
-  </div>
-</div>
-
-<div class="statusView">
-  <div *ngFor="let server of objectKeys(clusterInfo)" class="serverBoxHolder">
-    <div [ngClass]="{serverBox: clusterInfo[server].connected, brokeServerBox: !clusterInfo[server].connected}">
-      {{server}}
-      <br>
-      {{clusterInfo[server].address}}
+<div *ngIf="recInfo">
+  <div class="recSelector">
+    <div *ngFor="let mode of objectKeys(recInfo)" class="recButtonHolder">
+      <button [ngClass]="{onModeButton: recInfo[mode].running, offModeButton: !recInfo[mode].running}" id={{mode}}
+        (click)="clickRecMode(mode)">{{mode}}</button>
     </div>
   </div>
-</div>
 
-<button (click)="showData()">show data</button>
+  <div class="fileViewer">
+    <app-file-viewer></app-file-viewer>
+  </div>
+
+  <div class="recTimeSelector">
+    <div *ngFor="let mode of objectKeys(recInfo)">
+      <div>{{mode}} <input [disabled]=recInfo[mode].running type="text" class="intervalBox" id={{mode}} [(ngModel)]="recInfo[mode].interval"></div>
+    </div>
+  </div>
+
+  <div class="currentFile">
+    <div *ngFor="let mode of objectKeys(recInfo)">
+      <div>{{mode}} <input type="text" [disabled]=!recInfo[mode].running cols="10" rows="1" readonly=true value="{{recInfo[mode].satellite_file}}"></div>
+    </div>
+  </div>
+
+  <div class="statusView">
+    <div *ngFor="let server of objectKeys(clusterInfo)" class="serverBoxHolder">
+      <div [ngClass]="{serverBox: clusterInfo[server].connected, brokeServerBox: !clusterInfo[server].connected}">
+        {{server}}
+        <br>
+        {{clusterInfo[server].address}}
+      </div>
+    </div>
+  </div>
+
+  <button (click)="showData()">show data</button>
+</div>

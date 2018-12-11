@@ -1,1 +1,4 @@
 kafka-python
+flask
+flask-restful
+python-firebase

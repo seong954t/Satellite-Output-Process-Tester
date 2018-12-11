@@ -6,16 +6,25 @@
 
 ### 모의 인공위성 실행(①)
     
-[Mock_Satellite_Tester 참고](./Mock_Satellite_Tester)
+[mockup_satellite 참고](./mockup_satellite)
     
-    $ python Mock_Satellite_Tester/main.py {아이피주소:포트} {토픽}
+    ### 실행 방법
+
+    $ pip install -r requirements.txt
+    $ python satellite_start.py {아이피주소:포트} {토픽}
     
     ex)
-    $ python Mock_Satellite_Tester/main.py 127.0.0.1:9092 topic
+    $ python main.py 127.0.0.1:9092 topic
     
-    run> start LA
-    run> start FD
-    run> stop LA
+    
+RestFul
+
+    request
+        http://localhost:5002/start/<mode>/<interval>
+        http://localhost:5002/stop/<mode>/
+       
+    response
+        success: 'OK'
     
 ### Kafka Server Docker 실행(②)
 
@@ -31,7 +40,16 @@
     
     * zookeeper 설정: https://stackoverflow.com/questions/48789422/apache-kafka-cluster-not-conne
 
-### Rsync Producer 실행(③)
+### Kafka Server Monitor 실행(③)
+
+[Kafka_Monitor 참고](./Kafka_Monitor)
+
+    $ python kafka_monitor_start.py {서버 이름} {아이피:포트} {서버 이름} {아이피:포트} ...
+    
+    ex)
+    $ python kafka_monitor_start.py kafka1 192.168.32.132:9092 kafka2 192.168.32.135:9092 kafka3 192.168.32.137:9092
+
+### Rsync Producer 실행(④)
 
 [hyunwook 참고](./hyunwook)
 

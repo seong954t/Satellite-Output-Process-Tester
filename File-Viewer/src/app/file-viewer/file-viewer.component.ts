@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-file-viewer',
@@ -12,55 +13,10 @@ export class FileViewerComponent implements OnInit {
   storeFileList: Array<String>;
   satelliteDir: any;
   storeDir: any;
-
-  getDirectoryData() {
-    this.satelliteDir = {
-      'COMS': {
-        'GOCI': {
-          'ELA': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_ELA_20181210151237': 'txt',
-                  'COMS_GOCI_ELA_20181210151337': 'txt',
-                  'COMS_GOCI_ELA_20181210151636': 'txt',
-                  'COMS_GOCI_ELA_20181210152413': 'txt',
-                  'COMS_GOCI_ELA_20181210152513': 'txt',
-                  'COMS_GOCI_ELA_20181210154405': 'txt',
-                  'COMS_GOCI_ELA_20181210160726': 'txt',
-                  'COMS_GOCI_ELA_20181210160754': 'txt'
-                }
-              }
-            }
-          },
-          'FD': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_FD_20181210151216': 'txt'
-                }
-              }
-            }
-          },
-          'LA': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_LA_20181210152430': 'txt',
-                  'COMS_GOCI_LA_20181210152630': 'txt'
-                }
-              }
-            }
-          }
-        }
-      }
-    };
-    this.storeDir = { ...this.satelliteDir };
-    this.satellitePath = '/';
-    this.storePath = '/';
-    this.satelliteFileList = Object.keys(this.satelliteDir);
-    this.storeFileList = Object.keys(this.storeDir);
-  }
+  satelliteRef: any;
+  storeRef: any;
+  satelliteFirst = true;
+  storeFirst = true;
 
   backDirectory(target: string) {
 
@@ -75,7 +31,7 @@ export class FileViewerComponent implements OnInit {
     }
     const currentDirList = currentPath.trim().split('/');
     currentDirList.push(file);
-
+    console.log(currentDirList);
     for (const dir of currentDirList) {
       if (dir !== '') {
         if (target === 'store') {
@@ -86,19 +42,22 @@ export class FileViewerComponent implements OnInit {
         currentDir = currentDir[dir];
       }
     }
-
-    if (target === 'store') {
-      this.storePath = currentPath + file + '/';
-    } else {
-      this.satellitePath = currentPath + file + '/';
+    if (file !== '') {
+      if (target === 'store') {
+        this.storePath = currentPath + file + '/';
+      } else {
+        this.satellitePath = currentPath + file + '/';
+      }
     }
+
   }
 
   setPostfix(currentDir): Array<String> {
+    console.log(currentDir);
     const currentList = Object.keys(currentDir);
     for (let i = 0; i < currentList.length; i++) {
       const key = currentList[i];
-      if (typeof(currentDir[key]) === 'string' ) {
+      if (typeof (currentDir[key]) === 'string') {
         currentList[i] = key + '.' + currentDir[key];
       } else {
         break;
@@ -107,10 +66,34 @@ export class FileViewerComponent implements OnInit {
     return currentList;
   }
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+    // satellite
+    this.satelliteRef = db.object('satellite_dir');
+    this.satelliteRef.snapshotChanges().subscribe(action => {
+      this.satelliteDir = action.payload.val();
+      if (this.satelliteFirst) {
+        this.satelliteFileList = Object.keys(this.satelliteDir);
+        this.satelliteFirst = false;
+      } else {
+        this.changeDirectory('satellite', '');
+      }
+    });
+
+    // store
+    this.storeRef = db.object('test_dic');
+    this.storeRef.snapshotChanges().subscribe(action => {
+      this.storeDir = action.payload.val();
+      console.log(this.storeDir);
+      if (this.storeFirst) {
+        this.storeFileList = Object.keys(this.storeDir);
+        this.storeFirst = false;
+      } else {
+        this.changeDirectory('store', '');
+      }
+    });
+  }
 
   ngOnInit() {
-    this.getDirectoryData();
   }
 
 }

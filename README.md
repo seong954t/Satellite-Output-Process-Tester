@@ -40,7 +40,16 @@ RestFul
     
     * zookeeper 설정: https://stackoverflow.com/questions/48789422/apache-kafka-cluster-not-conne
 
-### Rsync Producer 실행(③)
+### Kafka Server Monitor 실행(③)
+
+[Kafka_Monitor 참고](./Kafka_Monitor)
+
+    $ python kafka_monitor_start.py {서버 이름} {아이피:포트} {서버 이름} {아이피:포트} ...
+    
+    ex)
+    $ python kafka_monitor_start.py kafka1 192.168.32.132:9092 kafka2 192.168.32.135:9092 kafka3 192.168.32.137:9092
+
+### Rsync Producer 실행(④)
 
 [hyunwook 참고](./hyunwook)
 

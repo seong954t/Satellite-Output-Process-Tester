@@ -10,9 +10,8 @@ class SatelliteOuter(object):
         self.satellite_firebase = firebase.FirebaseApplication('https://satellite-d94ef.firebaseio.com/', None)
         self.mode_dic = self.satellite_firebase.get('status/', None)
         for key in self.mode_dic.keys():
-            if self.mode_dic[key]['state'] == 'run':
-                self.satellite_firebase.put('status/' + key, 'state', 'stop')
-                self.mode_dic[key]['state'] = 'stop'
+            self.satellite_firebase.put('status/' + key, 'running', False)
+            self.mode_dic[key]['running'] = False
             self.mode_dic[key]['thread'] = Timer
 
     def file_scheduling(self, str_mode):
@@ -21,12 +20,12 @@ class SatelliteOuter(object):
                        [str_mode])
         thread.start()
         self.mode_dic[str_mode]['thread'] = thread
-        self.satellite_firebase.put('status/' + str_mode, 'state', 'run')
+        self.satellite_firebase.put('status/' + str_mode, 'running', True)
         self.create_file(str_mode)
 
     def stop_file_scheduling(self, str_mode):
         self.mode_dic[str_mode]['thread'].cancel()
-        self.satellite_firebase.put('status/' + str_mode, 'state', 'stop')
+        self.satellite_firebase.put('status/' + str_mode, 'running', False)
 
     def create_file(self, str_mode):
         file_name = self.create_file_name(str_mode)

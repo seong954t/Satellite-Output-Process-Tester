@@ -1,0 +1,7 @@
+div.satellite-table, div.store-table {
+    border: 1px solid black;
+}
+
+td {
+    cursor: pointer;
+}

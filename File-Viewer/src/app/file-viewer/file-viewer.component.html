@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col">
+    <p>위성</p>
+    <div class="row">
+      <div class="col-md-8"><h3>{{satellitePath}}</h3></div>
+      <div class="col-md-4" style="text-align: right"><button class="btn satelliteBackBtn" (click)="backDirectory('satellite')">back</button></div>
+    </div>
+    <div class="satellite-table" style="height: 400px">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let file of satelliteFileList">
+            <td (click)="changeDirectory('satellite', file)">{{file}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col">
+    <p>위성 데이터 저장소</p>
+    <div class="row">
+        <div class="col-md-8"><h3>{{storePath}}</h3></div>
+        <div class="col-md-4" style="text-align: right"><button class="btn storeBackBtn" (click)="backDirectory('store')">back</button></div>
+      </div>
+    <div class="store-table" style="height: 400px">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let file of storeFileList">
+            <td (click)="changeDirectory('store', file)">{{file}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>

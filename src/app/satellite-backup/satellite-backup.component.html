@@ -1,0 +1,33 @@
+<div class="recSelector">
+  <div *ngFor="let mode of objectKeys(recInfo)">
+    <button (click)="clickRecMode(mode)">{{mode}}</button>
+  </div>
+</div>
+
+<div class="dirPanel">
+  <div class="senderDir">
+    위성
+  </div>
+
+  <div class="receiverDir">
+    위성 데이터 저장소
+  </div>
+</div>
+
+<div class="recTimeSelector">
+  <div *ngFor="let mode of objectKeys(recInfo)">
+    <div>{{mode}} <input type="text" value={{recInfo[mode].interval}} onchange="changeInterval()"></div>
+  </div>
+</div>
+
+<div class="currentFile">
+  <div *ngFor="let mode of objectKeys(recInfo)">
+    <div>{{mode}} <textarea cols="10" rows="1"></textarea></div>
+  </div>
+</div>
+
+<div class="statusView">
+  <div *ngFor="let server of objectKeys(clusterInfo)">
+    <div class="serverBox" id={{server}}>{{server}} <br> {{clusterInfo[server].ip}}</div>
+  </div>
+</div>

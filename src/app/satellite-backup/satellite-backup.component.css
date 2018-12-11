@@ -1,0 +1,53 @@
+.recSelector{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+}
+
+.senderDir{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+}
+
+.receiverDir{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+
+}
+
+.recTimeSelector{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+
+}
+
+.currentFile{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+
+}
+
+.statusView{
+    border: 5px solid green;
+    margin: auto;
+    position: relative;
+    margin: 30px;
+}
+
+.serverBox{
+    border: 3px solid black;
+    background-color: rgb(33, 202, 28);
+    text-align: center;
+    margin: auto;
+    position: relative;
+    margin: 15px;
+}

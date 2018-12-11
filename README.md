@@ -6,12 +6,12 @@
 
 ### 모의 인공위성 실행(①)
     
-[Mock_Satellite_Tester 참고](./Mock_Satellite_Tester)
+[mockup_satellite 참고](./mockup_satellite)
     
     ### 실행 방법
 
     $ pip install -r requirements.txt
-    $ python main.py {아이피주소:포트} {토픽}
+    $ python satellite_start.py {아이피주소:포트} {토픽}
     
     ex)
     $ python main.py 127.0.0.1:9092 topic

@@ -1,40 +1,11 @@
-
-/*
-.frame{
-    width: 1050px;
-    margin: 0 auto;
-    border: 1px solid #aaa;
+.row{
+    padding: 10px;
 }
-
-.header{
-    padding:40px 10px;
-    margin: 20px 20px;
-}
-
-.container {
-    overflow: hidden;
-    margin: 20px 20px;
-}
-
-.footer {
-    border-top: 1px solid #aaa;
-    margin: 20px 20px 20px;
-    border: 5px solid green;
-    height: 200px;
-}
-
-.fileViewer{
-    border: 5px solid green;
-    width: 600px;
-    float: left;
-}
-
 
 .currentFile{
-    border: 5px solid green;
-    margin: 30px;
-    float: right;
-    width: 300px;
-    margin-left: 50px;
+    margin-left: 10px;
 }
-*/
+
+.footer{
+    margin-top: 50px;
+}

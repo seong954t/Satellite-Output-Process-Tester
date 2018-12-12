@@ -1,0 +1,26 @@
+
+.serverBoxHolder{
+    text-align: center;
+}
+
+.serverBox{
+    border: 3px solid black;
+    background-color: rgb(33, 202, 28);
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.brokeServerBox{
+    border: 3px solid black;
+    background-color: red;
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}

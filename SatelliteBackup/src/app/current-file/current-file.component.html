@@ -1,0 +1,3 @@
+<div *ngFor="let mode of objectKeys(recInfo)">
+  <div>{{mode}}<input type="text" [disabled]=!recInfo[mode].running cols="10" rows="1" readonly=true [value]="recInfo[mode].running ? recInfo[mode].satellite_file : ''"></div>
+</div>

@@ -1,4 +1,5 @@
 from satellite_outer import SatelliteOuter
+import json
 
 
 class SatelliteOuterProducer(SatelliteOuter):
@@ -9,4 +10,8 @@ class SatelliteOuterProducer(SatelliteOuter):
 
     def create_file(self, str_mode):
         file_name = super(SatelliteOuterProducer, self).create_file(str_mode)
-        self.kafka_producer.publish_message(file_name)
+        json_msg = {
+            'mode': str_mode,
+            'file': file_name
+        }
+        self.kafka_producer.publish_message(json_msg)

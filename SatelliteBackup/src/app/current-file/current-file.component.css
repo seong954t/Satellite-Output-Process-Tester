@@ -3,3 +3,7 @@
     color: #eeae01;
     border-color: #eeae01;
 }
+
+input:not([disabled]) { 
+    background-color: white;
+}

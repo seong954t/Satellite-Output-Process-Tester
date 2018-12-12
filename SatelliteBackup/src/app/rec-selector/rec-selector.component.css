@@ -33,3 +33,9 @@
     background-color: red;
     width: 100px;
 }
+
+.intervalBox{
+    width: 40px;
+    text-align: center;
+    margin-right: 10px;
+}

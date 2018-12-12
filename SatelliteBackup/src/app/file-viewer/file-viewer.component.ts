@@ -28,7 +28,23 @@ export class FileViewerComponent implements OnInit {
                   'COMS_GOCI_ELA_20181210152513': 'txt',
                   'COMS_GOCI_ELA_20181210154405': 'txt',
                   'COMS_GOCI_ELA_20181210160726': 'txt',
-                  'COMS_GOCI_ELA_20181210160754': 'txt'
+                  'COMS_GOCI_ELA_20181210160754': 'txt',
+                  'COMS_GOCI_ELA_20181210160755': 'txt',
+                  'COMS_GOCI_ELA_20181210151210': 'txt',
+                  'COMS_GOCI_ELA_20181210151311': 'txt',
+                  'COMS_GOCI_ELA_20181210151612': 'txt',
+                  'COMS_GOCI_ELA_20181510152413': 'txt',
+                  'COMS_GOCI_ELA_20181210152553': 'txt',
+                  'COMS_GOCI_ELA_20181210155405': 'txt',
+                  'COMS_GOCI_ELA_20181210560726': 'txt',
+                  'COMS_GOCI_ELA_20181215160754': 'txt',
+                  'COMS_GOCI_ELA_20181210251311': 'txt',
+                  'COMS_GOCI_ELA_20181210121612': 'txt',
+                  'COMS_GOCI_ELA_20181510152213': 'txt',
+                  'COMS_GOCI_ELA_20181210152523': 'txt',
+                  'COMS_GOCI_ELA_20181210153405': 'txt',
+                  'COMS_GOCI_ELA_20181210560426': 'txt',
+                  'COMS_GOCI_ELA_20181215160764': 'txt'
                 }
               }
             }

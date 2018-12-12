@@ -1,0 +1,48 @@
+
+.serverBoxHolder{
+    text-align: center;
+}
+
+.serverBox{
+    border: 3px solid black;
+    background-color: rgb(33, 202, 28);
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.brokeServerBox{
+    border: 3px solid black;
+    background-color: red;
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.btn-sq-lg {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  
+.btn-sq {
+width: 120px !important;
+height: 120px !important;
+}
+
+.span-sq-lg-name{
+    white-space: pre-line;
+    word-break: break-all;
+    font-size: 24px;
+}
+
+.span-sq-lg-add{
+    white-space: pre-line;
+    word-break: break-all;
+    font-size: 16px;
+}

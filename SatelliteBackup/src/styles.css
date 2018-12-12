@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body, html{
+    height: 100%;
+}
+
+.nopadding{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.tree-view-lg{
+    height:500px;
+}
+
+.tree-view{
+    height:300px;
+}
+
+.col-scroll{
+    white-space: nowrap;
+    overflow-x: auto;
+}

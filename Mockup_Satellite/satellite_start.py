@@ -8,7 +8,9 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-kafka_producer = SatelliteProducer(sys.argv[1], sys.argv[2])
+# sys.argv[1] : topic
+# sys.argv[2] : [server ip:port, server ip:port, server ip:port, ...]
+kafka_producer = SatelliteProducer(sys.argv[1], sys.argv[2:])
 satellite_outer_producer = SatelliteOuterProducer(kafka_producer)
 
 

@@ -18,7 +18,7 @@ rsync의 상세 기능에 대한 정보는 confluence의 '자료관리 > 자료�
 
 # 실행 방법
 
-    $ python RysncConsumer.py {아이피주소:포트} {토픽}
+    $ python RysncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
 
     ex)
-    $ python RysncConsumer.py 127.0.0.1:9092 topic
+    $ python RysncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 

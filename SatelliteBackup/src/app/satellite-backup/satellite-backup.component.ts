@@ -59,17 +59,6 @@ export class SatelliteBackupComponent implements OnInit {
     });
   }
 
-  getLatestFile(mode, type) {
-    if (this.recInfo[mode].running) {
-      if (type === 'satellite') {
-        return this.recInfo[mode].satellite_file;
-      } else {
-        return this.recInfo[mode].saved_file;
-      }
-    }
-    return '';
-  }
-
   showData() {
     console.log(this.clusterInfo, this.recInfo);
   }

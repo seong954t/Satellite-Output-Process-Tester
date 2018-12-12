@@ -20,7 +20,7 @@ export class SatelliteBackupComponent implements OnInit {
   ngOnInit() {
     this.initFirebase();
   }
-  
+
   clickRecMode(mode) {
     if (this.recInfo[mode].running === true) {
       this.modeTurnOff(mode);

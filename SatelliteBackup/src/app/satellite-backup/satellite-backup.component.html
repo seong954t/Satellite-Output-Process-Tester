@@ -1,25 +1,25 @@
-<div class="col-md-1 d-block"></div>
+<div class="col-md-1 d-block nopadding"></div>
 <div class="col-md-10" *ngIf="recInfo">
   <div class="row header">
-    <div class="recSelector col-md-6">
+    <div class="recSelecor col-md-12 nopadding">
       <app-rec-selector [recInfo]="recInfo"></app-rec-selector>
     </div>
   </div>
 
   <div class="row contents">
-    <div class="fileViewer col-md-10">
-      <app-file-viewer></app-file-viewer>
+    <div class="fileViewer col-md-9 nopadding row">
+      <app-file-viewer class="col-md-12 nopadding"></app-file-viewer>
     </div>
 
-    <div class="currentFile col-md-2">
+    <div class="currentFile col-md-3 nopadding">
       <app-current-file [recInfo]="recInfo"></app-current-file>
     </div>
   </div>
 
   <div class="row footer">
-    <div class="serverStatus col-md-10">
+    <div class="serverStatus col-md-12 nopadding">
       <app-server-status [clusterInfo]="clusterInfo"></app-server-status>
     </div>
   </div>
 </div>
-<div class="col-md-1 d-block"></div>
+<div class="col-md-1 d-block nopadding"></div>

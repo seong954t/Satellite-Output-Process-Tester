@@ -1,6 +1,6 @@
 <div class="serverStatus">
   <div *ngFor="let server of objectKeys(clusterInfo)" class="btn-group mr-2 serverBoxHolder">
-    <div class='btn btn-lg btn-sq-lg btn-block'  [class.btn-success]="clusterInfo[server].connected" [class.btn-danger]="!clusterInfo[server].connected">
+    <div class='btn btn-lg btn-sq-lg btn-block' [class.btn-success]="clusterInfo[server].connected" [class.btn-danger]="!clusterInfo[server].connected">
       <span class="align-middle d-block span-sq-lg-name">
         {{server}}
       </span>

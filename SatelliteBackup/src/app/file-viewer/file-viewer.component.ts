@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-file-viewer',
@@ -12,74 +13,51 @@ export class FileViewerComponent implements OnInit {
   storeFileList: Array<String>;
   satelliteDir: any;
   storeDir: any;
-
-  getDirectoryData() {
-    this.satelliteDir = {
-      'COMS': {
-        'GOCI': {
-          'ELA': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_ELA_20181210151237': 'txt',
-                  'COMS_GOCI_ELA_20181210151337': 'txt',
-                  'COMS_GOCI_ELA_20181210151636': 'txt',
-                  'COMS_GOCI_ELA_20181210152413': 'txt',
-                  'COMS_GOCI_ELA_20181210152513': 'txt',
-                  'COMS_GOCI_ELA_20181210154405': 'txt',
-                  'COMS_GOCI_ELA_20181210160726': 'txt',
-                  'COMS_GOCI_ELA_20181210160754': 'txt',
-                  'COMS_GOCI_ELA_20181210160755': 'txt',
-                  'COMS_GOCI_ELA_20181210151210': 'txt',
-                  'COMS_GOCI_ELA_20181210151311': 'txt',
-                  'COMS_GOCI_ELA_20181210151612': 'txt',
-                  'COMS_GOCI_ELA_20181510152413': 'txt',
-                  'COMS_GOCI_ELA_20181210152553': 'txt',
-                  'COMS_GOCI_ELA_20181210155405': 'txt',
-                  'COMS_GOCI_ELA_20181210560726': 'txt',
-                  'COMS_GOCI_ELA_20181215160754': 'txt',
-                  'COMS_GOCI_ELA_20181210251311': 'txt',
-                  'COMS_GOCI_ELA_20181210121612': 'txt',
-                  'COMS_GOCI_ELA_20181510152213': 'txt',
-                  'COMS_GOCI_ELA_20181210152523': 'txt',
-                  'COMS_GOCI_ELA_20181210153405': 'txt',
-                  'COMS_GOCI_ELA_20181210560426': 'txt',
-                  'COMS_GOCI_ELA_20181215160764': 'txt'
-                }
-              }
-            }
-          },
-          'FD': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_FD_20181210151216': 'txt'
-                }
-              }
-            }
-          },
-          'LA': {
-            '2018': {
-              '12': {
-                '10': {
-                  'COMS_GOCI_LA_20181210152430': 'txt',
-                  'COMS_GOCI_LA_20181210152630': 'txt'
-                }
-              }
-            }
-          }
-        }
-      }
-    };
-    this.storeDir = { ...this.satelliteDir };
-    this.satellitePath = '/';
-    this.storePath = '/';
-    this.satelliteFileList = Object.keys(this.satelliteDir);
-    this.storeFileList = Object.keys(this.storeDir);
-  }
+  satelliteRef: any;
+  storeRef: any;
+  satelliteFirst = true;
+  storeFirst = true;
 
   backDirectory(target: string) {
+    let currentPath = this.satellitePath;
+    let currentDir = this.satelliteDir;
+    if (target === 'store') {
+      currentPath = this.storePath;
+      currentDir = this.storeDir;
+    }
+    if (currentPath === '/') {
+      return;
+    }
+    let currentDirList = currentPath.slice(1, -1).split('/');
+    currentDirList = currentDirList.slice(0, -1);
 
+    if (currentDirList.length === 0) {
+      if (target === 'store') {
+        this.storePath = '/';
+        this.storeFileList = Object.keys(this.storeDir);
+      } else {
+        this.satellitePath = '/';
+        this.satelliteFileList = Object.keys(this.satelliteDir);
+      }
+      return;
+    }
+
+    for (const dir of currentDirList) {
+      if (dir !== '') {
+        if (target === 'store') {
+          this.storeFileList = this.setPostfix(currentDir[dir]);
+        } else {
+          this.satelliteFileList = this.setPostfix(currentDir[dir]);
+        }
+        currentDir = currentDir[dir];
+      }
+    }
+
+    if (target === 'store') {
+      this.storePath = '/' + currentDirList.join('/') + '/';
+    } else {
+      this.satellitePath = '/' + currentDirList.join('/') + '/';
+    }
   }
 
   changeDirectory(target: string, file: string) {
@@ -94,6 +72,9 @@ export class FileViewerComponent implements OnInit {
 
     for (const dir of currentDirList) {
       if (dir !== '') {
+        if (currentDir[dir] === undefined) {
+          return;
+        }
         if (target === 'store') {
           this.storeFileList = this.setPostfix(currentDir[dir]);
         } else {
@@ -103,11 +84,14 @@ export class FileViewerComponent implements OnInit {
       }
     }
 
-    if (target === 'store') {
-      this.storePath = currentPath + file + '/';
-    } else {
-      this.satellitePath = currentPath + file + '/';
+    if (file !== '') {
+      if (target === 'store') {
+        this.storePath = currentPath + file + '/';
+      } else {
+        this.satellitePath = currentPath + file + '/';
+      }
     }
+
   }
 
   setPostfix(currentDir): Array<String> {
@@ -123,10 +107,34 @@ export class FileViewerComponent implements OnInit {
     return currentList;
   }
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+    // satellite
+    this.satelliteRef = db.object('satellite_dir');
+    this.satelliteRef.snapshotChanges().subscribe(action => {
+      this.satelliteDir = action.payload.val();
+      if (this.satelliteFirst) {
+        this.satelliteFileList = Object.keys(this.satelliteDir);
+        this.satelliteFirst = false;
+      } else {
+        this.changeDirectory('satellite', '');
+      }
+    });
+
+    // store
+    this.storeRef = db.object('saved_dir');
+    this.storeRef.snapshotChanges().subscribe(action => {
+      this.storeDir = action.payload.val();
+      console.log(this.storeDir);
+      if (this.storeFirst) {
+        this.storeFileList = Object.keys(this.storeDir);
+        this.storeFirst = false;
+      } else {
+        this.changeDirectory('store', '');
+      }
+    });
+  }
 
   ngOnInit() {
-    this.getDirectoryData();
   }
 
 }

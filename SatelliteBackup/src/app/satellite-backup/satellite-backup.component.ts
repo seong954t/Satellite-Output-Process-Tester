@@ -1,17 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-satellite-backup',
   templateUrl: './satellite-backup.component.html',
-  styleUrls: ['./satellite-backup.component.css']
+  styleUrls: ['./satellite-backup.component.css'],
+  providers: [DataService]
 })
 export class SatelliteBackupComponent implements OnInit {
   @Input() recInfo;
   @Input() clusterInfo;
 
-  objectKeys = Object.keys
+  objectKeys = Object.keys;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
 
@@ -19,9 +21,9 @@ export class SatelliteBackupComponent implements OnInit {
 
   clickRecMode(mode) {
     if (this.recInfo[mode].running === true) {
-      this.modeTurnOff(mode)
+      this.modeTurnOff(mode);
     } else {
-      this.modeTurnOn(mode)
+      this.modeTurnOn(mode);
     }
   }
 
@@ -35,7 +37,10 @@ export class SatelliteBackupComponent implements OnInit {
       예외처리
     }
     */
-    this.recInfo[mode].running = true
+    // this.recInfo[mode].running = true;
+    this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(x => {
+
+    });
   }
 
   modeTurnOff(mode) {
@@ -48,10 +53,13 @@ export class SatelliteBackupComponent implements OnInit {
      예외처리
    }
    */
-    this.recInfo[mode].running = false
+    // this.recInfo[mode].running = false;
+    this.dataService.getStop(mode).subscribe(x => {
+
+    });
   }
 
   showData() {
-    console.log(this.clusterInfo, this.recInfo)
+    console.log(this.clusterInfo, this.recInfo);
   }
 }

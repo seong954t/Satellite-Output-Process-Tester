@@ -1,4 +1,3 @@
-import { SatelliteBackupComponent } from './../satellite-backup/satellite-backup.component';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -31,13 +30,4 @@ export class DemoComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  makeKafkaBreak() {
-    const temp = this.clusterInfo;
-    temp.Kafka3.connected = false;
-    this.clusterInfo = temp;
-
-    console.log(this.clusterInfo);
-  }
-
 }

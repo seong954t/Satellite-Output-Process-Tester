@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-file-viewer',
@@ -17,6 +18,10 @@ export class FileViewerComponent implements OnInit {
   storeRef: AngularFireObject<{}>;
   satelliteFirst = true;
   storeFirst = true;
+  satellitedata: any;
+
+  hasChildren = (item: any) => item.items && item.items.length > 0;
+  children = (item: any) => of(item.items);
 
   backDirectory(target: string) {
     let currentPath = this.satellitePath;
@@ -112,6 +117,7 @@ export class FileViewerComponent implements OnInit {
     this.satelliteRef = this.db.object('satellite_dir');
     this.satelliteRef.snapshotChanges().subscribe(action => {
       this.satelliteDir = action.payload.val();
+      this.satellitedata = this.getTreeViewDataStructure(this.satelliteDir);
       if (this.satelliteFirst) {
         this.satelliteFileList = Object.keys(this.satelliteDir);
         this.satelliteFirst = false;
@@ -124,7 +130,6 @@ export class FileViewerComponent implements OnInit {
     this.storeRef = this.db.object('saved_dir');
     this.storeRef.snapshotChanges().subscribe(action => {
       this.storeDir = action.payload.val();
-      console.log(this.storeDir);
       if (this.storeFirst) {
         this.storeFileList = Object.keys(this.storeDir);
         this.storeFirst = false;
@@ -134,21 +139,22 @@ export class FileViewerComponent implements OnInit {
     });
   }
 
-  getTreeViewDataStructure(dir: object){
-    let tree_view_data = []
-    for(let key in dir){
-      let item = {}
-      if(typeof(dir[key]) != 'string'){
+  getTreeViewDataStructure(dir: object) {
+    const tree_view_data = [];
+    // tslint:disable-next-line:forin
+    for (const key in dir) {
+      let item = {};
+      if (typeof (dir[key]) !== 'string') {
         item = {
           'text': key,
           'items': this.getTreeViewDataStructure(dir[key])
-        }
-      }else{
+        };
+      } else {
         item = {
-          'text': key+'.'+dir[key]
-        }
+          'text': key + '.' + dir[key]
+        };
       }
-      tree_view_data.push(item)
+      tree_view_data.push(item);
     }
     return tree_view_data;
   }

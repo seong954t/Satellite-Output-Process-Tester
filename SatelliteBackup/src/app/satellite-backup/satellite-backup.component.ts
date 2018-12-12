@@ -1,21 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../data.service';
-import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-satellite-backup',
   templateUrl: './satellite-backup.component.html',
-  styleUrls: ['./satellite-backup.component.css'],
-  providers: [DataService]
+  styleUrls: ['./satellite-backup.component.css']
 })
 export class SatelliteBackupComponent implements OnInit {
   @Input() recInfo;
   @Input() clusterInfo;
 
   objectKeys = Object.keys;
-  modeList = {};
 
-  constructor(private dataService: DataService, private db: AngularFireDatabase) { }
+  constructor() { }
 
   ngOnInit() {
     this.initFirebase();
@@ -52,7 +48,6 @@ export class SatelliteBackupComponent implements OnInit {
         });
       }
     });
-
   }
 
 }

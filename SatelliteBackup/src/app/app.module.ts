@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { NgModule } from '@angular/core';
 import { SatelliteBackupComponent } from './satellite-backup/satellite-backup.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +33,9 @@ import { ServerStatusComponent } from './server-status/server-status.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    TreeViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,3 +7,16 @@ body, html{
     padding: 0 !important;
     margin: 0 !important;
 }
+
+.tree-view-lg{
+    height:500px;
+}
+
+.tree-view{
+    height:300px;
+}
+
+.col-scroll{
+    white-space: nowrap;
+    overflow-x: auto;
+}

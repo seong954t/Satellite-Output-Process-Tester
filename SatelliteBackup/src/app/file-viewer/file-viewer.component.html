@@ -1,14 +1,14 @@
-<div class="col-md-6 d-inline-block nopadding aling-top">
+<div class="col-md-6 d-inline-block aling-top">
   <p>위성</p>
-  <div class="satellite-table">
-    <kendo-treeview textField="text" [nodes]="satellitedata" [children]="children" [hasChildren]="hasChildren"
+  <div class="satellite-table card">
+    <kendo-treeview class="tree-view-lg" textField="text" [nodes]="satellitedata" [children]="children" [hasChildren]="hasChildren"
       kendoTreeViewExpandable>
     </kendo-treeview>
   </div>
-</div><div class="col-md-6 d-inline-block nopadding aling-top">
+</div><div class="col-md-6 d-inline-block aling-top">
   <p>위성 데이터 저장소</p>
-  <div class="store-table">
-    <kendo-treeview textField="text" [nodes]="storedata" [children]="children" [hasChildren]="hasChildren"
+  <div class="store-table card">
+    <kendo-treeview class="tree-view-lg" textField="text" [nodes]="storedata" [children]="children" [hasChildren]="hasChildren"
       kendoTreeViewExpandable>
     </kendo-treeview>
   </div>

@@ -18,24 +18,4 @@ export class SatelliteBackupComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  clickRecMode(mode) {
-    if (this.recInfo[mode].running === true) {
-      this.modeTurnOff(mode);
-    } else {
-      this.modeTurnOn(mode);
-    }
-  }
-
-  modeTurnOn(mode) {
-    this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(x => {
-
-    });
-  }
-
-  modeTurnOff(mode) {
-    this.dataService.getStop(mode).subscribe(x => {
-
-    });
-  }
 }

@@ -1,6 +1,4 @@
-import { SatelliteBackupModule } from './satellite-backup/satellite-backup.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { SatelliteBackupComponent } from './satellite-backup/satellite-backup.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +9,10 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { FileViewerComponent } from './file-viewer/file-viewer.component';
+import { RecSelectorComponent } from './rec-selector/rec-selector.component';
+import { CurrentFileComponent } from './current-file/current-file.component';
+import { FormsModule } from '@angular/forms';
+import { ServerStatusComponent } from './server-status/server-status.component';
 
 
 
@@ -19,13 +21,15 @@ import { FileViewerComponent } from './file-viewer/file-viewer.component';
     AppComponent,
     SatelliteBackupComponent,
     DemoComponent,
-    FileViewerComponent
+    FileViewerComponent,
+    RecSelectorComponent,
+    CurrentFileComponent,
+    ServerStatusComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    SatelliteBackupModule,
     HttpClientModule,
     FormsModule
   ],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 
 @Component({
   selector: 'app-file-viewer',
@@ -14,7 +14,7 @@ export class FileViewerComponent implements OnInit {
   satelliteDir: any;
   storeDir: any;
   satelliteRef: any;
-  storeRef: any;
+  storeRef: AngularFireObject<{}>;
   satelliteFirst = true;
   storeFirst = true;
 
@@ -107,9 +107,9 @@ export class FileViewerComponent implements OnInit {
     return currentList;
   }
 
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     // satellite
-    this.satelliteRef = db.object('satellite_dir');
+    this.satelliteRef = this.db.object('satellite_dir');
     this.satelliteRef.snapshotChanges().subscribe(action => {
       this.satelliteDir = action.payload.val();
       if (this.satelliteFirst) {
@@ -121,7 +121,7 @@ export class FileViewerComponent implements OnInit {
     });
 
     // store
-    this.storeRef = db.object('saved_dir');
+    this.storeRef = this.db.object('saved_dir');
     this.storeRef.snapshotChanges().subscribe(action => {
       this.storeDir = action.payload.val();
       console.log(this.storeDir);

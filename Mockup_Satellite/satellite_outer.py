@@ -47,6 +47,7 @@ class SatelliteOuter(object):
         file_pre_path = '/'.join(file_path.split('/')[:-1])
         file_name = file_path.split('/')[-1]
         self.satellite_firebase.put('satellite_dir'+file_pre_path, file_name.split('.')[0], file_name.split('.')[-1])
+        self.satellite_firebase.put('status/' + str_mode, 'satellite_file', file_name)
         return file_path
 
     @staticmethod

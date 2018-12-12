@@ -134,6 +134,25 @@ export class FileViewerComponent implements OnInit {
     });
   }
 
+  getTreeViewDataStructure(dir: object){
+    let tree_view_data = []
+    for(let key in dir){
+      let item = {}
+      if(typeof(dir[key]) != 'string'){
+        item = {
+          'text': key,
+          'items': this.getTreeViewDataStructure(dir[key])
+        }
+      }else{
+        item = {
+          'text': key+'.'+dir[key]
+        }
+      }
+      tree_view_data.push(item)
+    }
+    return tree_view_data;
+  }
+
   ngOnInit() {
   }
 

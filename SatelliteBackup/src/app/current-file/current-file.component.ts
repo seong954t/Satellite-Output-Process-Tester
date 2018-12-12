@@ -11,6 +11,8 @@ export class CurrentFileComponent implements OnInit {
 
   objectKeys = Object.keys;
   modeList = {};
+  SATELLITE_FILE = 0;
+  SAVED_FILE = 1;
 
  constructor(private db: AngularFireDatabase) { }
 
@@ -29,13 +31,27 @@ export class CurrentFileComponent implements OnInit {
      for (const [key, value] of Object.entries(this.modeList)) {
        this.db.object(`status/${key}/satellite_file`).valueChanges().subscribe(val => {
          console.log(key, value['satellite_file']);
+         this.modeList['satellite_file'] = true;
+         this.alertEndLatestFile(key, this.SATELLITE_FILE);
        });
        this.db.object(`status/${key}/saved_file`).valueChanges().subscribe(val => {
          console.log(key, value['saved_file']);
+         this.modeList['saved_file'] = true;
+         this.alertEndLatestFile(key, this.SAVED_FILE);
        });
      }
    });
  }
 
+ alertEndLatestFile(mode: string, kind_of_file: number){
+   setTimeout(() => {
+     if(kind_of_file == this.SATELLITE_FILE){
+       this.modeList[mode]['satellite_file'] = false;
+     }else{
+       this.modeList[mode]['saved_file'] = false;
+     }
+   }, 1000);
+
+ }
 
 }

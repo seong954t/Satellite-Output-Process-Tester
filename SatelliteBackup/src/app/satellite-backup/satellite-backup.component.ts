@@ -38,7 +38,6 @@ export class SatelliteBackupComponent implements OnInit {
     }
     */
     // this.recInfo[mode].running = true;
-    console.log(this.recInfo[mode].interval);
     this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(x => {
 
     });
@@ -58,6 +57,17 @@ export class SatelliteBackupComponent implements OnInit {
     this.dataService.getStop(mode).subscribe(x => {
 
     });
+  }
+
+  getLatestFile(mode, type) {
+    if (this.recInfo[mode].running) {
+      if (type === 'satellite') {
+        return this.recInfo[mode].satellite_file;
+      } else {
+        return this.recInfo[mode].saved_file;
+      }
+    }
+    return '';
   }
 
   showData() {

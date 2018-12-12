@@ -5,10 +5,10 @@
         (click)="clickRecMode(mode)">{{mode}}</button>
     </div>
   </div>
+</div>
 
-  <div class="recTimeSelector col-sm-3">
-    <div *ngFor="let mode of objectKeys(recInfo)">
-      <div>{{mode}} <input [disabled]=recInfo[mode].running type="text" class="intervalBox" id={{mode}} [(ngModel)]="recInfo[mode].interval"></div>
-    </div>
+<div class="recTimeSelector col-md-5 d-inline-block">
+  <div *ngFor="let mode of objectKeys(recInfo)" class="d-inline-block">
+    <div>{{mode}} <input [disabled]=recInfo[mode].running type="text" class="intervalBox" id={{mode}} [(ngModel)]="recInfo[mode].interval"></div>
   </div>
 </div>

@@ -1,19 +1,23 @@
-<div class="frame" *ngIf="recInfo">
-  <div class="header">
-    <app-rec-selector [recInfo]="recInfo"></app-rec-selector>
+<div class="container" *ngIf="recInfo">
+  <div class="row header">
+    <div class="recSelector col-md-6">
+      <app-rec-selector [recInfo]="recInfo"></app-rec-selector>
+    </div>
   </div>
 
-  <div class="container">
-    <div class="fileViewer">
+  <div class="row contents">
+    <div class="fileViewer col-md-8">
       <app-file-viewer></app-file-viewer>
     </div>
 
-    <div class="currentFile">
+    <div class="currentFile col-md-3">
       <app-current-file [recInfo]="recInfo"></app-current-file>
     </div>
   </div>
 
-  <div class="footer">
-    <app-server-status [clusterInfo]="clusterInfo"></app-server-status>
+  <div class="row footer">
+    <div class="serverStatus col-md-9">
+      <app-server-status [clusterInfo]="clusterInfo"></app-server-status>
+    </div>
   </div>
 </div>

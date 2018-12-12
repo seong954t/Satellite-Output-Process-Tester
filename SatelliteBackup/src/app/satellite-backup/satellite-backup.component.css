@@ -1,9 +1,36 @@
+.frame{
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #aaa;
+}
+
+.header{
+    padding:40px 10px;
+    margin: 20px 20px;
+}
+
+.container {
+    overflow: hidden;
+    margin: 20px 20px;
+}
+
+.nav {
+    float: right;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.footer {
+    border-top: 1px solid #aaa;
+    margin: 20px 20px 20px;
+    border: 5px solid green;
+    height: 200px;
+}
+
 .recSelector{
     border: 5px solid green;
-    margin: auto;
-    position: relative;
-    margin: 30px;
-    width: 120px;
+    width: 320px;
+    padding: 0 8px;
 }
 
 .recButtonHolder{
@@ -12,16 +39,12 @@
 
 .fileViewer{
     border: 5px solid green;
-    margin: auto;
-    position: relative;
-    margin: 30px;
+    width: 600px;
+    float: left;
 }
 
 .recTimeSelector{
     border: 5px solid green;
-    margin: auto;
-    position: relative;
-    margin: 30px;
 }
 
 .currentFile{
@@ -32,39 +55,39 @@
 
 }
 
-.statusView{
-    border: 5px solid green;
-    margin: auto;
-    position: relative;
-    margin: 30px;
+.serverBoxHolder{
+    text-align: center;
 }
 
 .serverBox{
     border: 3px solid black;
     background-color: rgb(33, 202, 28);
     text-align: center;
-    margin: auto;
-    position: relative;
-    margin: 15px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
 }
 
 .brokeServerBox{
     border: 3px solid black;
     background-color: red;
     text-align: center;
-    margin: auto;
-    position: relative;
-    margin: 15px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
 }
 
-.serverBoxHolder{
-    display: inline;
-}
 
 .onModeButton{
     background-color: gray;
+    width: 100px;
 }
 
 .offModeButton{
     background-color: red;
+    width: 100px;
 }

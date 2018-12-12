@@ -5,9 +5,9 @@
       <div class="col-md-8">
         <h3>{{satellitePath}}</h3>
       </div>
-      <div class="col-md-4" style="text-align: right"><button class="btn satelliteBackBtn" (click)="backDirectory('satellite')">back</button></div>
+      <div class="col-md-4"><button class="btn satelliteBackBtn" (click)="backDirectory('satellite')">back</button></div>
     </div>
-    <div class="satellite-table" style="height: 400px">
+    <div class="satellite-table">
       <table class="table">
         <tbody>
           <tr *ngFor="let file of satelliteFileList">
@@ -23,9 +23,9 @@
       <div class="col-md-8">
         <h3>{{storePath}}</h3>
       </div>
-      <div class="col-md-4" style="text-align: right"><button class="btn storeBackBtn" (click)="backDirectory('store')">back</button></div>
+      <div class="col-md-4"><button class="btn storeBackBtn" (click)="backDirectory('store')">back</button></div>
     </div>
-    <div class="store-table" style="height: 400px">
+    <div class="store-table">
       <table class="table">
         <tbody>
           <tr *ngFor="let file of storeFileList">

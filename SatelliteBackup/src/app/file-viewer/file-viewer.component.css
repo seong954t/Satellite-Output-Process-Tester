@@ -1,7 +1,22 @@
 div.satellite-table, div.store-table {
     border: 1px solid black;
+    height: 400px;
+    overflow: auto;
 }
 
 td {
     cursor: pointer;
+}
+
+.row {
+    display: inline;
+}
+
+.col{
+    float: left;
+    width: 300px;
+}
+
+.col-md-4{
+    text-align: right;
 }

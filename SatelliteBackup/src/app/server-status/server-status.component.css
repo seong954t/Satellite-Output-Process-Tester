@@ -24,3 +24,25 @@
     width: 150px;
     height: 150px;
 }
+
+.btn-sq-lg {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  
+.btn-sq {
+width: 120px !important;
+height: 120px !important;
+}
+
+.span-sq-lg-name{
+    white-space: pre-line;
+    word-break: break-all;
+    font-size: 24px;
+}
+
+.span-sq-lg-add{
+    white-space: pre-line;
+    word-break: break-all;
+    font-size: 16px;
+}

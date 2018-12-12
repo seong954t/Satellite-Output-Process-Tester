@@ -1,4 +1,5 @@
-<div class="container" *ngIf="recInfo">
+<div class="col-md-1 d-block"></div>
+<div class="col-md-10" *ngIf="recInfo">
   <div class="row header">
     <div class="recSelector col-md-6">
       <app-rec-selector [recInfo]="recInfo"></app-rec-selector>
@@ -6,11 +7,11 @@
   </div>
 
   <div class="row contents">
-    <div class="fileViewer col-md-8">
+    <div class="fileViewer col-md-10">
       <app-file-viewer></app-file-viewer>
     </div>
 
-    <div class="currentFile col-md-3">
+    <div class="currentFile col-md-2">
       <app-current-file [recInfo]="recInfo"></app-current-file>
     </div>
   </div>
@@ -21,3 +22,4 @@
     </div>
   </div>
 </div>
+<div class="col-md-1 d-block"></div>

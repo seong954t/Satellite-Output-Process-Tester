@@ -1,0 +1,23 @@
+.recTimeSelector{
+    border: 5px solid green;
+}
+
+.onModeButton{
+    background-color: gray;
+    width: 100px;
+}
+
+.offModeButton{
+    background-color: red;
+    width: 100px;
+}
+
+.recSelector{
+    border: 5px solid green;
+    width: 320px;
+    padding: 0 8px;
+}
+
+.recButtonHolder{
+    display: inline;
+}

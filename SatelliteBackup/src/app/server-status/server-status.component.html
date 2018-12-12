@@ -1,0 +1,9 @@
+<div class="serverStatus">
+  <div *ngFor="let server of objectKeys(clusterInfo)" class="serverBoxHolder">
+    <div [ngClass]="{serverBox: clusterInfo[server].connected, brokeServerBox: !clusterInfo[server].connected}">
+      {{server}}
+      <br>
+      {{clusterInfo[server].address}}
+    </div>
+  </div>
+</div>

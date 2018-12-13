@@ -2,6 +2,14 @@
 ### 1. pakage.json의 모듈 설치
 
     $ npm install
+- `@angular/animations": "^5.2.0"`
+- `@angular/material": "^5.2.5"`
+- `@angular/cdk": "^5.2.5`
+- `@angular/fire": "^5.0.0-rc.2"`
+- `@progress/kendo-angular-treeview": "^2.5.0"`
+- `@progress/kendo-theme-default": "^2.62.0"`
+- `bootstrap": "^4.1.3"`
+- `firebase": "^4.13.1"`
 
 ### 2. Firebase config 설정
 - envirionment/envirionment.ts에 firebase config 추가
@@ -22,7 +30,6 @@ export const environment = {
   ...
 };
 ```
-
 
 ### 3. 서버 실행
 

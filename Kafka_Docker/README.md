@@ -33,11 +33,14 @@ kafka:
     envirionment:
         ...
         KAFKA_BROKER_ID: {id}
+        KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://{호스트 ip}:9092
         KAFKA_CREATE_TOPICS: "{Topic 이름}:{Partiton 갯수}:{Replication factor}"
         KAFKA_ZOOKEEPER_CONNECT: {kafka1 ip}:2181, {kafka2 ip}:2181
 ...
 ```
 4. docker-compose 실행
 ```
+systemctl start docker.service
 docker-compose up
 ```

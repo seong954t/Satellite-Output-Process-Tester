@@ -12,10 +12,13 @@ export class RecSelectorComponent implements OnInit {
 
   objectKeys = Object.keys;
   serverUrl: string;
-
+  spinners = {};
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    for (const key of Object.keys(this.recInfo)){
+      this.spinners[key] = false;
+    }
   }
 
   updateServerUrl() {
@@ -31,26 +34,32 @@ export class RecSelectorComponent implements OnInit {
   }
 
   modeTurnOn(mode) {
+    this.spinners[mode] = true;
     this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(
       res => {
         console.log('res');
         console.log(res);
+        this.spinners[mode] = false;
       },
       err => {
         console.log('err');
         console.log(err);
+        this.spinners[mode] = false;
       });
   }
 
   modeTurnOff(mode) {
+    this.spinners[mode] = true;
     this.dataService.getStop(mode).subscribe(
       res => {
         console.log('res');
         console.log(res);
+        this.spinners[mode] = false;
       },
       err => {
         console.log('err');
         console.log(err);
+        this.spinners[mode] = false;
       }
     );
   }

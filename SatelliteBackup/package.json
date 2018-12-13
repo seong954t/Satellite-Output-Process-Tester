@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
@@ -26,6 +25,9 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
+    "@angular/animations": "^5.2.0",
+    "@angular/material": "^5.2.5",
+    "@angular/cdk": "^5.2.5",
     "@angular/cli": "~1.7.4",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/fire": "^5.0.0-rc.2",

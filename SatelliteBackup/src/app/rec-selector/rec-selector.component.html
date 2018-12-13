@@ -4,8 +4,8 @@
 <div class="row container col-md-6 d-inline-block nopadding col-scroll">
   <div *ngFor="let mode of objectKeys(recInfo)" class="btn-group mr-2 recSelector">
     <div class="recButtonHolder">
-      <button class='btn btn-lg btn-block' [class.btn-success]=" recInfo[mode].running" [class.btn-danger]="!recInfo[mode].running"
-        id={{mode}} (click)="clickRecMode(mode)">{{mode}}</button>
+      <button class='btn btn-lg btn-block' [class.btn-success]="recInfo[mode].running" [class.btn-danger]="!recInfo[mode].running"
+        id={{mode}} (click)="clickRecMode(mode)"><span class="align-middle"><mat-spinner *ngIf="spinners[mode]" class="d-inline-block " [diameter]="25"></mat-spinner> </span> {{mode}}</button>
     </div>
   </div>
 </div><div class="recTimeSelector col-md-6 d-inline-block nopadding col-scroll">

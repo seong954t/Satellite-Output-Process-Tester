@@ -10,7 +10,7 @@
 
 ### 위성 산출물 서버 동작 Flow
 
-![Satellite-Output-Process-Tester 구조](./img/Satellite-Output-Process-Tester-image.PNG)
+![Satellite-Output-Process-Tester 구조](img/Satellite-Output-Process-Tester.PNG)
 
 <br>
 

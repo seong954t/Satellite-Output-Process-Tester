@@ -6,7 +6,7 @@ Cluster된 Kafka Server의 데이터를 통해 해당 Server가 실행중인지 
 
 ### 실행 방법
 
-RysncConsumer.py 내 Firebase RealTime Database URL 입력
+kafka_monitor.py 내 Firebase RealTime Database URL 입력
 
 ![Firebase RealTime Database URL](../img/firebase-config.PNG)
 

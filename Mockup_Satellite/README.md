@@ -8,7 +8,7 @@
 
 ### 실행 방법
 
-RysncConsumer.py 내 Firebase RealTime Database URL 입력
+satellite_outer.py 내 Firebase RealTime Database URL 입력
 
 ![Firebase RealTime Database URL](../img/firebase-config.PNG)
 

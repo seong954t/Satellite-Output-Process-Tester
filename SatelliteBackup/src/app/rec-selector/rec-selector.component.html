@@ -1,3 +1,6 @@
+<div class="row col-md-4">
+  <input type="text" class="form-control" [(ngModel)]="serverUrl" (change)="updateServerUrl()" placeholder="IP 입력">
+</div>
 <div class="row container col-md-6 d-inline-block nopadding col-scroll">
   <div *ngFor="let mode of objectKeys(recInfo)" class="btn-group mr-2 recSelector">
     <div class="recButtonHolder">

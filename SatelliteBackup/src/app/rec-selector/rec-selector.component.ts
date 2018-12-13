@@ -11,10 +11,15 @@ export class RecSelectorComponent implements OnInit {
   @Input() recInfo;
 
   objectKeys = Object.keys;
+  serverUrl: string;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+  }
+
+  updateServerUrl() {
+    this.dataService.setServerUrl(this.serverUrl);
   }
 
   clickRecMode(mode) {
@@ -26,14 +31,27 @@ export class RecSelectorComponent implements OnInit {
   }
 
   modeTurnOn(mode) {
-    this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(x => {
-
-    });
+    this.dataService.getStart(mode, this.recInfo[mode].interval).subscribe(
+      res => {
+        console.log('res');
+        console.log(res);
+      },
+      err => {
+        console.log('err');
+        console.log(err);
+      });
   }
 
   modeTurnOff(mode) {
-    this.dataService.getStop(mode).subscribe(x => {
-
-    });
+    this.dataService.getStop(mode).subscribe(
+      res => {
+        console.log('res');
+        console.log(res);
+      },
+      err => {
+        console.log('err');
+        console.log(err);
+      }
+    );
   }
 }

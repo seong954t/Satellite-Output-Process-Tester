@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
-  private serverUrl = 'http://192.168.100.103:5002';
-
+  private serverUrl: string;
+  httpHeader = new HttpHeaders({ timeout: '200' });
   constructor(private http: HttpClient) { }
 
   getStart(mode: string, interval: string) {
-    return this.http.get(`${this.serverUrl}/start/${mode}/${interval}`);
+    return this.http.post(`${this.serverUrl}/start/${mode}/${interval}`, {timeout: 2000});
   }
 
   getStop(mode: string) {
-    return this.http.get(`${this.serverUrl}/stop/${mode}/`);
+    return this.http.post(`${this.serverUrl}/stop/${mode}/`, {timeout: 2000});
+  }
+
+  setServerUrl(serverUrl: string) {
+    this.serverUrl = `http://${serverUrl}:5002`;
+    console.log(this.serverUrl);
   }
 }

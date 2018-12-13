@@ -12,7 +12,7 @@ def main():
     consumer = KafkaConsumer(sys.argv[1], bootstrap_servers=sys.argv[2:],
                              enable_auto_commit=True, auto_offset_reset='earliest',
                              value_deserializer=lambda m: json.loads(m.decode('utf-8')))
-    satellite_firebase = firebase.FirebaseApplication('https://satellite-d94ef.firebaseio.com/', None)
+    satellite_firebase = firebase.FirebaseApplication('INPUT FIREBASE REALTIME DATABASE URL', None)
     for msg in consumer:
         # print("Topic: %s, Partition: %d, Offset: %d, Key: %s, Value:%s" % (msg.topic, msg.partition, msg.offset, msg.key, msg.value))
         json_msg = msg.value

@@ -10,8 +10,9 @@
 #### 3. 브라우저를 사용해 지정한 포트번호로 접속(기본 포트번호는 localhost:4200)
 
 <br>
+<br>
 
-### 기능
+### UI기능
 
 ![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester_FrontEndUI.jpg)
 

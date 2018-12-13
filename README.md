@@ -82,6 +82,7 @@ RestFul
     ex)
     $ python RysncConsumer.py 127.0.0.1:9092 topic
 
+<<<<<<< HEAD
 ### 위성 산출물 관리 페이지 실행
 
 [SatelliteBackup 참고](SatelliteBackup)

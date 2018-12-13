@@ -1,5 +1,19 @@
+# 위성 산출물 송수신 서버 테스트 모듈
+
+## 서비스 구성
+
+### 위성 산출물 관리 페이지 <sub>[UI 기능 설명](./SatelliteBackup)</sub>
+
+![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester_FrontEndUI.jpg)
+
+### 위성 산출물 서버 동작 Flow
+
 ![Satellite-Output-Process-Tester 구조](./img/Satellite-Output-Process-Tester-image.PNG)
 
+
+
+
+## 시작하기
 ### 관련 모듈 설치
 
     $ pip install -r requirements.txt

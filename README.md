@@ -10,10 +10,19 @@
 
 ![Satellite-Output-Process-Tester 구조](./img/Satellite-Output-Process-Tester-image.PNG)
 
-
-
+<br>
 
 ## 시작하기
+
+### 필요한 서버
+
+- 모의 인공위성 실행 서버 1개(위성 산출물 생성용)
+- Kafka 서버 N개(Cluster의 개수만큼 필요)
+- Kafka 서버 모니터링 서버 1개(Kafka Cluster 모니터링용)
+- 위성 산출물 저장용 서버 1개(위성 산출물 수신용)
+- 위성 산출 관리 페이지용 서버 1개
+- 실시간 정보 반영을 위한 Firebase 서버 1개
+
 ### 관련 모듈 설치
 
     $ pip install -r requirements.txt

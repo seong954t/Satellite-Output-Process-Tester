@@ -8,11 +8,11 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getStart(mode: string, interval: string) {
-    return this.http.post(`${this.serverUrl}/start/${mode}/${interval}`, {timeout: 2000});
+    return this.http.get(`${this.serverUrl}/start/${mode}/${interval}`);
   }
 
   getStop(mode: string) {
-    return this.http.post(`${this.serverUrl}/stop/${mode}/`, {timeout: 2000});
+    return this.http.get(`${this.serverUrl}/stop/${mode}/`);
   }
 
   setServerUrl(serverUrl: string) {

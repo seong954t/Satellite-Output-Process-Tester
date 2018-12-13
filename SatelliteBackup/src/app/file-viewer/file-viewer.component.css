@@ -1,0 +1,21 @@
+/*
+div.satellite-table, div.store-table {
+    border: 1px solid black;
+    overflow: auto;
+}
+
+td {
+    cursor: pointer;
+}
+
+.row {
+    display: inline;
+}
+
+.col{
+    float: left;
+}
+
+.col-md-4{
+    text-align: right;
+}*/

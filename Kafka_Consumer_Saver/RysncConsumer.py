@@ -7,9 +7,9 @@ import json
 
 
 def main():
-    # sys.argv[1] : server ip : port
-    # sys.argv[2] : topic
-    consumer = KafkaConsumer(sys.argv[2], bootstrap_servers=sys.argv[1],
+    # sys.argv[1] : topic
+    # sys.argv[2] : [server ip:port, server ip:port, server ip:port, ...]
+    consumer = KafkaConsumer(sys.argv[1], bootstrap_servers=sys.argv[2:],
                              enable_auto_commit=True, auto_offset_reset='earliest',
                              value_deserializer=lambda m: json.loads(m.decode('utf-8')))
     satellite_firebase = firebase.FirebaseApplication('https://satellite-d94ef.firebaseio.com/', None)

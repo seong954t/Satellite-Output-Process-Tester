@@ -3,14 +3,35 @@
 
     $ npm install
 
-### 2. 서버 실행
+### 2. Firebase config 설정
+- envirionment/envirionment.ts에 firebase config 추가
+- envirionment/envirionment.prod.ts firebase config 추가  
 
-    $ npm start
+![Firebase config](../img/Satellite-Output-Process-firebase.png)  
+```
+export const environment = {
+  ...
+  firebase: {
+    apiKey: {my-apiKey},
+    authDomain: {my-authDomain},
+    databaseURL: {my-databaseURL},
+    projectId: {my-projectId},
+    storageBucket: {my-storageBucket},
+    messagingSenderId: {my-messagingSenderId}
+  }
+  ...
+};
+```
 
-### 3. 브라우저를 사용해 지정한 포트번호로 접속(기본 포트번호는 localhost:4200)
 
-<br>
-<br>
+### 3. 서버 실행
+
+    $ ng serve --host 0.0.0.0 --open
+
+### 4. 브라우저에서 해당 호스트의 ip로 접속 (기본 포트: 4200)  
+    ex) http://192.168.100.67:4200
+
+&nbsp;  
 
 ## UI기능
 

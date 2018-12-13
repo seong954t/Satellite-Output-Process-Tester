@@ -2,17 +2,24 @@ import datetime
 import os
 from threading import Timer
 from firebase import firebase
+import json
 
 
 class SatelliteOuter(object):
 
     def __init__(self):
-        self.satellite_firebase = firebase.FirebaseApplication('https://satellite-d94ef.firebaseio.com/', None)
+        self.satellite_firebase = firebase.FirebaseApplication('INPUT FIREBASE REALTIME DATABASE URL', None)
         self.mode_dic = self.satellite_firebase.get('status/', None)
+        self.mode_dic = {'FD':{},
+                         'LA':{},
+                         'ELA':{}}
         for key in self.mode_dic.keys():
-            self.satellite_firebase.put('status/' + key, 'running', False)
             self.mode_dic[key]['running'] = False
+            self.satellite_firebase.put('status/' + key, 'running', False)
+            self.mode_dic[key]['interval'] = 0
+            self.satellite_firebase.put('status/' + key, 'interval', 0)
             self.mode_dic[key]['thread'] = Timer
+
 
     def file_scheduling(self, str_mode):
         thread = Timer(self.mode_dic[str_mode]['interval']-0.001,

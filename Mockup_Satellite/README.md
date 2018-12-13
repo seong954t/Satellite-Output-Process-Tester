@@ -8,6 +8,10 @@
 
 ### 실행 방법
 
+RysncConsumer.py 내 Firebase RealTime Database URL 입력
+
+![Firebase RealTime Database URL](../img/firebase-config.PNG)
+
     $ pip install -r requirements.txt
     $ python satellite_start.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ... 
     

@@ -7,7 +7,7 @@ import threading
 class KafkaMonitor(object):
 
     def __init__(self, config):
-        self.satellite_firebase = firebase.FirebaseApplication('https://satellite-d94ef.firebaseio.com/', None)
+        self.satellite_firebase = firebase.FirebaseApplication('INPUT FIREBASE REALTIME DATABASE URL', None)
         self.config_dic = {}
         for idx in range(0, len(config), 2):
             self.config_dic[config[idx]] = {

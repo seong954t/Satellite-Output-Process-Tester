@@ -3,7 +3,7 @@ from kafka import KafkaConsumer
 import sys
 
 topic = 'docker-topic'
-server = ['192.168.32.141:19092', '192.168.32.141:29092', '192.168.32.141:39092']
+server = ['192.168.32.141:9092', '192.168.100.67:9092']
 
 
 def publish_message(msg):

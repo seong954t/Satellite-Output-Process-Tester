@@ -14,7 +14,7 @@
 
 ## UI기능
 
-![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester_FrontEndUI.jpg)
+![Satellite-Output-Process-TesterUI 구조](../img/Satellite-Output-Process-Tester_FrontEndUI.jpg)
 
 ### 촬영모드 선택(①)
   1. 버튼을 클릭하는 것으로 각 촬영모드를 활성화/비활성화 할 수 있다.

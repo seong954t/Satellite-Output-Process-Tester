@@ -9,10 +9,12 @@
 
 #### 3. 브라우저를 사용해 지정한 포트번호로 접속(기본 포트번호는 localhost:4200)
 
-[이미지 첨부]
 
 
 ### 기능
+
+![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester-imageUI.jpg)
+
 #### 촬영모드 선택(1)
   1. 버튼을 클릭하는 것으로 각 촬영모드를 활성화/비활성화 할 수 있다.
   2. 특정 촬영모드를 활성화할 경우 촬영 주기 설정(2)에 설정된 주기로 실행된다.

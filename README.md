@@ -6,7 +6,7 @@
 
 <sub>[UI 기능 설명](./SatelliteBackup)</sub>
 
-![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester_FrontEndUI_original.jpg)
+![Satellite-Output-Process-TesterUI 구조](./img/Satellite-Output-Process-Tester_FrontEndUI_original.png)
 
 ### 위성 산출물 서버 동작 Flow
 

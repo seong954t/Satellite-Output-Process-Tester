@@ -1,12 +1,12 @@
 <div>
-  <span>최근 생성 위성 파일 정보</span>
+  <h4 class="bold-font">최근 생성 위성 파일 정보</h4>
   <div *ngFor="let mode of objectKeys(recInfo)">
     <div>{{mode}}<input class="form-control" type="text" [class.alertfile]="modeList[mode]['satellite_file'] && recInfo[mode].running" [disabled]=!recInfo[mode].running cols="10" rows="1" [value]="recInfo[mode].running ? recInfo[mode].satellite_file : ''" readonly=true></div>
   </div>
 </div>
 <br>
 <div>
-  <span>최근 생성 저장 파일 정보</span>
+  <h4 class="bold-font">최근 생성 저장 파일 정보</h4>
   <div *ngFor="let mode of objectKeys(recInfo)">
     <div>{{mode}}<input class="form-control" type="text" [class.alertfile]="modeList[mode]['saved_file'] && recInfo[mode].running" [disabled]=!recInfo[mode].running cols="10" rows="1" [value]="recInfo[mode].running ? recInfo[mode].saved_file : ''" readonly=true></div>
   </div>

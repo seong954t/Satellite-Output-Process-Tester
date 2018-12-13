@@ -7,7 +7,7 @@
 - envirionment/envirionment.ts에 firebase config 추가
 - envirionment/envirionment.prod.ts firebase config 추가  
 
-![Firebase config](../img/Satellite-Output-Process-firebase.png)  
+![Firebase config](../img/Satellite-Output-Process-Firebase.png)  
 ```
 export const environment = {
   ...

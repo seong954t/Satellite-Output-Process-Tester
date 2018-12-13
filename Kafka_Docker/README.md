@@ -2,8 +2,23 @@
 - docker-compose를 사용하여 kafka 환경 구축
 
 ## Getting Start
-1. git clone kafka-docker (https://github.com/wurstmeister/kafka-docker.git)
-2. docker-compose.yml 파일 수정 (ip 주소는 각 호스트의 ip 주소로 설정)
+
+1. docker & docker-compose install
+
+```
+$ yum update
+$ yum -y install docker
+$ curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+$ chmod +x /usr/local/bin/docker-compose
+```
+
+2. git clone kafka-docker (https://github.com/wurstmeister/kafka-docker.git)
+
+```
+$ git clone https://github.com/wurstmeister/kafka-docker.git
+```
+
+3. docker-compose.yml 파일 수정 (ip 주소는 각 호스트의 ip 주소로 설정)
 ```
 ...
 zookeeper:
@@ -22,7 +37,7 @@ kafka:
         KAFKA_ZOOKEEPER_CONNECT: {kafka1 ip}:2181, {kafka2 ip}:2181
 ...
 ```
-3. docker-compose 실행
+4. docker-compose 실행
 ```
 docker-compose up
 ```

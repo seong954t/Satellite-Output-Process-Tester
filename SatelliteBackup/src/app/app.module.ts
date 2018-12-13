@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -35,7 +36,8 @@ import { ServerStatusComponent } from './server-status/server-status.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    TreeViewModule
+    TreeViewModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

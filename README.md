@@ -37,10 +37,10 @@
 ### 실행 방법
 
     $ pip install -r requirements.txt
-    $ python satellite_start.py {아이피주소:포트} {토픽}
+    $ python satellite_start.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ... 
     
     ex)
-    $ python main.py 127.0.0.1:9092 topic
+    $ python main.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
     
     
 RestFul
@@ -70,10 +70,10 @@ RestFul
 
 [Kafka_Consumer_Saver 참고](Kafka_Consumer_Saver)
 
-    $ python RysncConsumer.py {아이피주소:포트} {토픽}
+    $ python RysncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
 
     ex)
-    $ python RysncConsumer.py 127.0.0.1:9092 topic
+    $ python RysncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
 
 ### Kafka Server Monitor 실행(④)
 
@@ -83,6 +83,11 @@ RestFul
     
     ex)
     $ python kafka_monitor_start.py kafka1 192.168.32.132:9092 kafka2 192.168.32.135:9092 kafka3 192.168.32.137:9092
+
+### Firebase 서버 생성(⑤)
+
+[Firebase](https://firebase.google.com/)에서 프로젝트 생성 후 Angular 및 python에 설정 정보 입력
+
 
 ### 위성 산출물 관리 페이지 실행
 

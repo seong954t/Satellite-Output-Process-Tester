@@ -36,7 +36,7 @@ kafka:
         KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
         KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://{호스트 ip}:9092
         KAFKA_CREATE_TOPICS: "{Topic 이름}:{Partiton 갯수}:{Replication factor}"
-        KAFKA_ZOOKEEPER_CONNECT: {kafka1 ip}:2181, {kafka2 ip}:2181
+        KAFKA_ZOOKEEPER_CONNECT: {zookeeper1 ip}:2181, {zookeeper2 ip}:2181
 ...
 ```
 4. docker-compose 실행

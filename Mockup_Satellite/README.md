@@ -16,7 +16,7 @@ satellite_outer.py 내 Firebase RealTime Database URL 입력
     $ python satellite_start.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ... 
     
     ex)
-    $ python main.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
+    $ python satellite_start.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
     
     
 RestFul

@@ -70,10 +70,10 @@ RestFul
 
 [Kafka_Consumer_Saver 참고](Kafka_Consumer_Saver)
 
-    $ python RsyncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
+    $ python RsyncConsumer.py {토픽} {위성 산출기 아이피주소} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
 
     ex)
-    $ python RsyncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
+    $ python RsyncConsumer.py topic 127.0.0.1 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
 
 ### Kafka Server Monitor 실행(④)
 

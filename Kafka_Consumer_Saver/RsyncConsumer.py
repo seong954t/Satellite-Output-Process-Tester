@@ -8,7 +8,7 @@ import json
 
 def main():
     # sys.argv[1] : topic
-    # sys.argv[2] : satellite Server ip:port
+    # sys.argv[2] : satellite Server ip
     # sys.argv[3:] : [server ip:port, server ip:port, server ip:port, ...]
     consumer = KafkaConsumer(sys.argv[1], bootstrap_servers=sys.argv[3:],
                              enable_auto_commit=True, auto_offset_reset='earliest',

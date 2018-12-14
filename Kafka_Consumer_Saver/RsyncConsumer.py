@@ -8,8 +8,9 @@ import json
 
 def main():
     # sys.argv[1] : topic
-    # sys.argv[2] : [server ip:port, server ip:port, server ip:port, ...]
-    consumer = KafkaConsumer(sys.argv[1], bootstrap_servers=sys.argv[2:],
+    # sys.argv[2] : satellite Server ip:port
+    # sys.argv[3:] : [server ip:port, server ip:port, server ip:port, ...]
+    consumer = KafkaConsumer(sys.argv[1], bootstrap_servers=sys.argv[3:],
                              enable_auto_commit=True, auto_offset_reset='earliest',
                              value_deserializer=lambda m: json.loads(m.decode('utf-8')))
     satellite_firebase = firebase.FirebaseApplication('INPUT FIREBASE REALTIME DATABASE URL', None)
@@ -21,7 +22,7 @@ def main():
         file_name = file_path.split('/')[-1]
         if not os.path.exists(file_pre_path):
             os.makedirs(file_pre_path)
-        subprocess.call('rsync -avzr --delete -e ssh root@'+sys.argv[1]+':' + file_path + ' ' + file_pre_path, shell=True)
+        subprocess.call('rsync -avzr --delete -e ssh root@'+sys.argv[2]+':' + file_path + ' ' + file_pre_path, shell=True)
         satellite_firebase.put('saved_dir' + file_pre_path, file_name.split('.')[0], file_name.split('.')[-1])
         satellite_firebase.put('status/' + json_msg['mode'], 'saved_file', file_name)
 

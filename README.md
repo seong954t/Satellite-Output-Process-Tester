@@ -66,14 +66,14 @@ RestFul
     
     * zookeeper 설정: https://stackoverflow.com/questions/48789422/apache-kafka-cluster-not-conne
 
-### Rsync Producer 실행(③)
+### Rsync Consumer 실행(③)
 
 [Kafka_Consumer_Saver 참고](Kafka_Consumer_Saver)
 
-    $ python RysncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
+    $ python RsyncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
 
     ex)
-    $ python RysncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
+    $ python RsyncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
 
 ### Kafka Server Monitor 실행(④)
 

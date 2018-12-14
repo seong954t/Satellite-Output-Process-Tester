@@ -14,7 +14,7 @@ RysncConsumer.py 내 Firebase RealTime Database URL 입력
 
 ![Firebase RealTime Database URL](../img/firebase-config.PNG)
 
-    $ python RysncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
+    $ python RsyncConsumer.py {토픽} {아이피주소:포트} {아이피주소:포트} {아이피주소:포트} ...
 
     ex)
-    $ python RysncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 
+    $ python RsyncConsumer.py topic 127.0.0.1:9092 127.0.0.2:9092 127.0.0.3:9092 

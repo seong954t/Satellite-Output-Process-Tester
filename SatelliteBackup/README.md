@@ -1,4 +1,4 @@
-## 프론트 앤드 설치 및 실행
+## Web Application 설치 및 실행
 ### 1. pakage.json의 모듈 설치
 
     $ npm install

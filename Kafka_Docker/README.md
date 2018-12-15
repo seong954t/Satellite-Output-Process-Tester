@@ -41,6 +41,6 @@ kafka:
 ```
 4. docker-compose 실행
 ```
-systemctl start docker.service
-docker-compose up
+$ systemctl start docker.service
+$ docker-compose up
 ```
